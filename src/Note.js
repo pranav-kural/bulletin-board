@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import FaPencil from 'react-icons/lib/fa/pencil'
+import FaTrash from 'react-icons/lib/fa/trash'
+import FaFloppyO from 'react-icons/lib/fa/floppy-o'
 
 class Note extends Component {
 
@@ -16,9 +19,9 @@ class Note extends Component {
   }
 
   edit() {
-    this.setState = {
+    this.setState({
       editing: true
-    }
+    })
   }
 
   remove() {
@@ -28,9 +31,9 @@ class Note extends Component {
   save() {
     alert('note saved')
 
-    this.setState = {
+    this.setState({
       editing: false
-    }
+    })
   }
 
   renderDisplay() {
@@ -38,8 +41,8 @@ class Note extends Component {
       <div className="note">
         <p>Learn React</p>
         <span>
-          <button onClick={this.edit}>Edit</button>
-          <button onClick={this.remove}>Remove</button>
+          <button id="edit" onClick={this.edit}><FaPencil /></button>
+          <button id="remove" onClick={this.remove}><FaTrash /></button>
         </span>
       </div>
     )
@@ -47,7 +50,15 @@ class Note extends Component {
 
   renderForm() {
     // return form
-    return <h1>Form</h1>
+    return (
+      <div className="note">
+        <form>
+          <textarea />
+          <button id="save" onClick={this.save}><FaFloppyO /></button>
+          </form>
+      </div>
+
+    )
   }
 
   render() {
